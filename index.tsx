@@ -103,7 +103,7 @@ const Navbar = ({ toggleTheme, theme }: { toggleTheme: () => void, theme: string
   ];
 
   return (
-    <nav className={`fixed w-full z-[60] transition-all duration-300 ${scrolled ? 'bg-white/90 dark:bg-dark-bg/90 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-4 lg:py-6'}`}>
+    <nav className={`fixed w-full z-[60] transition-all duration-300 ${scrolled ? 'bg-white/95 dark:bg-dark-bg/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-4 lg:py-6'}`}>
       <div className="container mx-auto px-4 lg:px-8 flex justify-between items-center">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 group relative z-[70]">
@@ -158,7 +158,7 @@ const Navbar = ({ toggleTheme, theme }: { toggleTheme: () => void, theme: string
           </button>
           
           <button
-            className="text-2xl text-gray-700 dark:text-white focus:outline-none"
+            className="text-2xl text-gray-700 dark:text-white focus:outline-none p-1"
             onClick={() => setIsOpen(!isOpen)}
           >
             <i className={`fa-solid ${isOpen ? 'fa-times' : 'fa-bars-staggered'}`}></i>
@@ -168,15 +168,15 @@ const Navbar = ({ toggleTheme, theme }: { toggleTheme: () => void, theme: string
 
       {/* Mobile Menu Overlay */}
       <div 
-        className={`lg:hidden fixed inset-0 bg-white dark:bg-dark-bg z-[60] transition-all duration-300 ease-in-out flex flex-col justify-center ${isOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'}`}
+        className={`lg:hidden fixed inset-0 bg-white dark:bg-dark-bg z-[60] transition-all duration-300 ease-in-out flex flex-col pt-24 pb-8 px-6 ${isOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'}`}
       >
-        <div className="flex flex-col h-full justify-center px-8 relative">
-           <div className="flex flex-col space-y-6">
+        <div className="flex flex-col h-full justify-between overflow-y-auto">
+           <div className="flex flex-col space-y-6 mt-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-4xl font-heading font-bold text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-accent-400 transition-colors"
+                className="text-3xl font-heading font-bold text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-accent-400 transition-colors border-b border-gray-100 dark:border-gray-800 pb-4"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -184,7 +184,7 @@ const Navbar = ({ toggleTheme, theme }: { toggleTheme: () => void, theme: string
             ))}
           </div>
           
-           <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+           <div className="mt-8">
              <p className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-widest font-bold mb-3">Direct Contact</p>
              <a 
                 href={`tel:${CONTACT_INFO.phone}`} 
@@ -194,6 +194,15 @@ const Navbar = ({ toggleTheme, theme }: { toggleTheme: () => void, theme: string
                 {CONTACT_INFO.phone}
              </a>
              <div className="text-gray-600 dark:text-gray-300 text-sm max-w-xs">{CONTACT_INFO.address}</div>
+             
+             <div className="mt-8 flex gap-4">
+               <a href="#" className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary-600 hover:text-white transition-colors">
+                 <i className="fa-brands fa-linkedin-in"></i>
+               </a>
+               <a href="#" className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary-600 hover:text-white transition-colors">
+                 <i className="fa-brands fa-whatsapp"></i>
+               </a>
+             </div>
            </div>
         </div>
       </div>
@@ -203,42 +212,42 @@ const Navbar = ({ toggleTheme, theme }: { toggleTheme: () => void, theme: string
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-32 lg:pt-20">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-28 lg:pt-20">
       {/* Animated Background Blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-          <div className="absolute top-[-10%] right-[-5%] w-[300px] lg:w-[500px] h-[300px] lg:h-[500px] bg-primary-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-          <div className="absolute top-[-10%] left-[-10%] w-[300px] lg:w-[500px] h-[300px] lg:h-[500px] bg-accent-400/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob delay-200"></div>
-          <div className="absolute bottom-[-20%] left-[20%] w-[300px] lg:w-[500px] h-[300px] lg:h-[500px] bg-purple-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob delay-500"></div>
+          <div className="absolute top-[-5%] right-[-10%] w-[250px] lg:w-[500px] h-[250px] lg:h-[500px] bg-primary-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+          <div className="absolute top-[10%] left-[-10%] w-[250px] lg:w-[500px] h-[250px] lg:h-[500px] bg-accent-400/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob delay-200"></div>
+          <div className="absolute bottom-[-10%] left-[20%] w-[250px] lg:w-[500px] h-[250px] lg:h-[500px] bg-purple-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob delay-500"></div>
       </div>
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-20">
             
-            <div className="w-full lg:w-1/2 text-center lg:text-left mt-8 lg:mt-0">
+            <div className="w-full lg:w-1/2 text-center lg:text-left mt-4 lg:mt-0">
                 <div className="inline-block px-4 py-1.5 rounded-full bg-white/50 dark:bg-white/10 border border-gray-200 dark:border-gray-700 backdrop-blur-sm mb-6 animate-fade-in-up">
                     <span className="font-heading font-semibold text-primary-600 dark:text-accent-400 text-xs uppercase tracking-widest">
                       <i className="fa-solid fa-location-dot mr-2"></i>Noida & Ghaziabad
                     </span>
                 </div>
                 
-                <h1 className="text-5xl lg:text-7xl font-heading font-extrabold text-gray-900 dark:text-white leading-[1.1] mb-6 tracking-tight animate-fade-in-up delay-100">
+                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-heading font-extrabold text-gray-900 dark:text-white leading-[1.1] mb-6 tracking-tight animate-fade-in-up delay-100">
                   Compliance <br/>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-500">Simplified.</span>
                 </h1>
                 
-                <h2 className="text-xl lg:text-2xl font-sans text-gray-600 dark:text-gray-300 font-medium mb-8 animate-fade-in-up delay-200">
+                <h2 className="text-lg lg:text-2xl font-sans text-gray-600 dark:text-gray-300 font-medium mb-6 animate-fade-in-up delay-200">
                   फैक्ट्री और लेबर कानूनों का संपूर्ण समाधान
                 </h2>
                 
-                <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0 animate-fade-in-up delay-300">
+                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 animate-fade-in-up delay-300">
                   We handle the bureaucracy so you can handle the business. Factories Act, Pollution NOC, and Labor Compliance experts since 2008.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up delay-500">
-                  <a href="#contact" className="px-8 py-4 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold text-sm uppercase tracking-wider hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up delay-500 w-full sm:w-auto">
+                  <a href="#contact" className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold text-sm uppercase tracking-wider hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg text-center">
                     Start Consultation
                   </a>
-                  <a href="#services" className="px-8 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white font-bold text-sm uppercase tracking-wider hover:border-primary-600 dark:hover:border-accent-400 hover:text-primary-600 dark:hover:text-accent-400 transition-all duration-300 bg-white/50 dark:bg-black/20 backdrop-blur-sm">
+                  <a href="#services" className="w-full sm:w-auto px-8 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white font-bold text-sm uppercase tracking-wider hover:border-primary-600 dark:hover:border-accent-400 hover:text-primary-600 dark:hover:text-accent-400 transition-all duration-300 bg-white/50 dark:bg-black/20 backdrop-blur-sm text-center">
                     Our Services
                   </a>
                 </div>
@@ -246,23 +255,23 @@ const Hero = () => {
 
             {/* Graphic */}
             <div className="w-full lg:w-1/2 flex justify-center animate-fade-in-up delay-300 pb-12 lg:pb-0">
-                <div className="relative w-full max-w-md aspect-square">
+                <div className="relative w-full max-w-[320px] lg:max-w-md aspect-square">
                     {/* Abstract Floating Cards */}
-                    <div className="absolute top-[10%] left-[5%] w-[260px] p-6 bg-white dark:bg-dark-card rounded-2xl shadow-card dark:shadow-none dark:border dark:border-gray-700 animate-float z-20">
+                    <div className="absolute top-[5%] left-[0%] w-[200px] lg:w-[260px] p-4 lg:p-6 bg-white dark:bg-dark-card rounded-2xl shadow-card dark:shadow-none dark:border dark:border-gray-700 animate-float z-20">
                         <div className="flex items-center gap-4 mb-3">
-                            <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
+                            <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
                                 <i className="fa-solid fa-check"></i>
                             </div>
-                            <div className="h-2 w-20 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                            <div className="h-2 w-16 lg:w-20 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
                         </div>
                         <div className="h-2 w-full bg-gray-100 dark:bg-gray-700 rounded-full mb-2"></div>
                         <div className="h-2 w-2/3 bg-gray-100 dark:bg-gray-700 rounded-full"></div>
                     </div>
 
-                    <div className="absolute bottom-[15%] right-[5%] w-[240px] p-6 bg-white dark:bg-dark-card rounded-2xl shadow-card dark:shadow-none dark:border dark:border-gray-700 animate-float z-30" style={{animationDelay: '1.5s'}}>
+                    <div className="absolute bottom-[10%] right-[0%] w-[180px] lg:w-[240px] p-4 lg:p-6 bg-white dark:bg-dark-card rounded-2xl shadow-card dark:shadow-none dark:border dark:border-gray-700 animate-float z-30" style={{animationDelay: '1.5s'}}>
                          <div className="flex items-center justify-between mb-4">
-                             <span className="text-sm font-bold text-gray-900 dark:text-white">Audit Score</span>
-                             <span className="text-primary-600 font-bold">98%</span>
+                             <span className="text-xs lg:text-sm font-bold text-gray-900 dark:text-white">Audit Score</span>
+                             <span className="text-primary-600 font-bold text-sm">98%</span>
                          </div>
                          <div className="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2">
                              <div className="bg-gradient-to-r from-primary-500 to-accent-500 h-2 rounded-full w-[98%]"></div>
@@ -270,13 +279,13 @@ const Hero = () => {
                     </div>
 
                     {/* Central Element */}
-                    <div className="absolute inset-[10%] bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 rounded-[2rem] transform rotate-3 shadow-2xl z-10 flex items-center justify-center border border-white dark:border-gray-700">
+                    <div className="absolute inset-[15%] lg:inset-[10%] bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 rounded-[2rem] transform rotate-3 shadow-2xl z-10 flex items-center justify-center border border-white dark:border-gray-700">
                          <div className="text-center">
-                             <div className="w-20 h-20 mx-auto bg-gradient-to-br from-primary-600 to-accent-500 rounded-2xl flex items-center justify-center text-white text-3xl shadow-glow mb-4">
+                             <div className="w-16 h-16 lg:w-20 lg:h-20 mx-auto bg-gradient-to-br from-primary-600 to-accent-500 rounded-2xl flex items-center justify-center text-white text-2xl lg:text-3xl shadow-glow mb-4">
                                 <i className="fa-solid fa-shield-halved"></i>
                              </div>
-                             <h3 className="text-2xl font-heading font-bold text-gray-900 dark:text-white">100% Legal</h3>
-                             <p className="text-sm text-gray-500 dark:text-gray-400">Zero Tolerance</p>
+                             <h3 className="text-xl lg:text-2xl font-heading font-bold text-gray-900 dark:text-white">100% Legal</h3>
+                             <p className="text-xs lg:text-sm text-gray-500 dark:text-gray-400">Zero Tolerance</p>
                          </div>
                     </div>
                 </div>
@@ -290,14 +299,14 @@ const Hero = () => {
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 bg-gray-50 dark:bg-dark-bg/50 relative">
+    <section id="services" className="py-20 lg:py-24 bg-gray-50 dark:bg-dark-bg/50 relative">
       <div className="container mx-auto px-4 lg:px-8">
         
-        <div className="mb-16 text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-6">
+        <div className="mb-12 lg:mb-16 text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl lg:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-4 lg:mb-6">
                 Our Areas of <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-500">Expertise</span>
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 text-lg">
+            <p className="text-gray-600 dark:text-gray-300 text-base lg:text-lg">
               Comprehensive statutory compliance services tailored for the industrial hubs of Noida, Greater Noida, and Ghaziabad.
             </p>
         </div>
@@ -306,22 +315,22 @@ const Services = () => {
           {SERVICES.map((service, index) => (
             <RevealOnScroll key={service.id} delay={index * 50}>
               <div 
-                className="group bg-white dark:bg-dark-card p-8 rounded-2xl shadow-sm hover:shadow-card-hover border border-gray-100 dark:border-gray-800 hover:border-primary-200 dark:hover:border-primary-900 transition-all duration-300 h-full flex flex-col justify-between relative overflow-hidden"
+                className="group bg-white dark:bg-dark-card p-6 lg:p-8 rounded-2xl shadow-sm hover:shadow-card-hover border border-gray-100 dark:border-gray-800 hover:border-primary-200 dark:hover:border-primary-900 transition-all duration-300 h-full flex flex-col justify-between relative overflow-hidden"
               >
                 {/* Hover Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-transparent dark:from-primary-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
                 <div className="relative z-10">
                     <div className="flex justify-between items-start mb-6">
-                        <div className={`w-14 h-14 rounded-xl bg-gray-50 dark:bg-gray-800 flex items-center justify-center ${service.color} text-2xl group-hover:scale-110 transition-transform duration-300`}>
+                        <div className={`w-12 h-12 lg:w-14 lg:h-14 rounded-xl bg-gray-50 dark:bg-gray-800 flex items-center justify-center ${service.color} text-xl lg:text-2xl group-hover:scale-110 transition-transform duration-300`}>
                             <i className={`fa-solid ${service.icon}`}></i>
                         </div>
-                        <span className="font-heading text-gray-200 dark:text-gray-800 text-4xl font-bold group-hover:text-primary-100 dark:group-hover:text-primary-900 transition-colors">
+                        <span className="font-heading text-gray-200 dark:text-gray-800 text-3xl lg:text-4xl font-bold group-hover:text-primary-100 dark:group-hover:text-primary-900 transition-colors">
                             {service.id.toString().padStart(2, '0')}
                         </span>
                     </div>
                     
-                    <h3 className="text-xl font-heading font-bold text-gray-900 dark:text-white mb-1">
+                    <h3 className="text-lg lg:text-xl font-heading font-bold text-gray-900 dark:text-white mb-1">
                       {service.title}
                     </h3>
                     <h4 className="text-sm font-medium text-primary-600 dark:text-accent-400 mb-4 font-sans">
@@ -334,7 +343,7 @@ const Services = () => {
                 </div>
 
                 <div className="relative z-10 flex justify-end">
-                    <a href="#contact" className="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-2 group-hover:gap-3 transition-all">
+                    <a href="#contact" className="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-2 group-hover:gap-3 transition-all p-2 -mr-2">
                         <span>Details</span>
                         <i className="fa-solid fa-arrow-right text-primary-600"></i>
                     </a>
@@ -350,19 +359,19 @@ const Services = () => {
 
 const About = () => {
   return (
-    <section id="about" className="py-24 bg-white dark:bg-dark-bg relative overflow-hidden">
+    <section id="about" className="py-20 lg:py-24 bg-white dark:bg-dark-bg relative overflow-hidden">
       {/* Background Decor */}
       <div className="absolute right-0 top-0 w-1/3 h-full bg-gray-50 dark:bg-gray-900/50 skew-x-12 transform origin-top-right"></div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
           
           <RevealOnScroll className="w-full lg:w-1/2">
-            <h2 className="text-4xl lg:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-8 leading-tight">
+            <h2 className="text-3xl lg:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-6 lg:mb-8 leading-tight">
               Trust Built on <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-500">Precision & Integrity</span>
             </h2>
             
-            <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+            <div className="space-y-6 text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 <p>
                   <strong className="font-bold text-gray-900 dark:text-white">Consultation House</strong> is not just an agency; we are your legal safeguard. Operating since 2008, we have established deep roots in the industrial sectors of UP.
                 </p>
@@ -371,14 +380,14 @@ const About = () => {
                 </p>
             </div>
 
-            <div className="mt-12 flex gap-8">
+            <div className="mt-10 lg:mt-12 flex gap-8">
                 <div>
-                    <h4 className="text-4xl font-heading font-bold text-primary-600 dark:text-accent-400">15+</h4>
+                    <h4 className="text-3xl lg:text-4xl font-heading font-bold text-primary-600 dark:text-accent-400">15+</h4>
                     <p className="text-xs uppercase tracking-widest mt-1 text-gray-500">Years Experience</p>
                 </div>
                 <div className="w-px bg-gray-200 dark:bg-gray-700 h-12"></div>
                 <div>
-                    <h4 className="text-4xl font-heading font-bold text-primary-600 dark:text-accent-400">500+</h4>
+                    <h4 className="text-3xl lg:text-4xl font-heading font-bold text-primary-600 dark:text-accent-400">500+</h4>
                     <p className="text-xs uppercase tracking-widest mt-1 text-gray-500">Clients Served</p>
                 </div>
             </div>
@@ -388,7 +397,7 @@ const About = () => {
              <div className="bg-gradient-to-br from-gray-900 to-primary-900 text-white p-8 lg:p-12 rounded-3xl shadow-2xl relative overflow-hidden">
                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16"></div>
                  
-                 <h3 className="font-heading text-2xl font-bold mb-8 uppercase flex items-center gap-3 relative z-10">
+                 <h3 className="font-heading text-xl lg:text-2xl font-bold mb-8 uppercase flex items-center gap-3 relative z-10">
                     <i className="fa-solid fa-check-circle text-accent-400"></i> Why Choose Us
                  </h3>
                  <ul className="space-y-6 relative z-10">
@@ -399,10 +408,10 @@ const About = () => {
                          "Zero Penalty Record"
                      ].map((item, i) => (
                          <li key={i} className="flex gap-4 items-center group">
-                             <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-400 group-hover:text-white transition-colors">
+                             <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-accent-400 shrink-0 group-hover:bg-accent-400 group-hover:text-white transition-colors">
                                  <i className="fa-solid fa-angle-right"></i>
                              </div>
-                             <p className="font-medium text-lg">{item}</p>
+                             <p className="font-medium text-base lg:text-lg">{item}</p>
                          </li>
                      ))}
                  </ul>
@@ -430,25 +439,25 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gray-50 dark:bg-dark-bg/50">
+    <section id="contact" className="py-20 lg:py-24 bg-gray-50 dark:bg-dark-bg/50">
       <div className="container mx-auto px-4 lg:px-8">
         <RevealOnScroll>
             <div className="max-w-5xl mx-auto bg-white dark:bg-dark-card rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
                 
-                <div className="w-full md:w-5/12 bg-primary-900 dark:bg-primary-950 text-white p-12 flex flex-col justify-between relative">
+                <div className="w-full md:w-5/12 bg-primary-900 dark:bg-primary-950 text-white p-8 lg:p-12 flex flex-col justify-between relative">
                      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
                      <div className="relative z-10">
                         <span className="text-xs font-bold uppercase tracking-widest text-accent-400 mb-2 block">Contact Us</span>
-                        <h3 className="font-heading text-4xl font-bold mb-10 leading-tight">Get Your <br/>Compliance Sorted.</h3>
+                        <h3 className="font-heading text-3xl lg:text-4xl font-bold mb-8 lg:mb-10 leading-tight">Get Your <br/>Compliance Sorted.</h3>
                         
-                        <div className="space-y-8 font-sans">
+                        <div className="space-y-6 lg:space-y-8 font-sans">
                             <div className="flex items-start gap-4">
                                 <div className="mt-1 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0">
                                     <i className="fa-solid fa-location-dot"></i>
                                 </div>
                                 <div>
                                     <p className="text-xs uppercase tracking-widest opacity-60 mb-1">Office</p>
-                                    <p className="font-medium opacity-90">{CONTACT_INFO.address}</p>
+                                    <p className="font-medium opacity-90 text-sm lg:text-base">{CONTACT_INFO.address}</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
@@ -457,7 +466,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <p className="text-xs uppercase tracking-widest opacity-60 mb-1">Phone</p>
-                                    <a href={`tel:${CONTACT_INFO.phone}`} className="text-xl font-bold hover:text-accent-400 transition-colors">{CONTACT_INFO.phone}</a>
+                                    <a href={`tel:${CONTACT_INFO.phone}`} className="text-lg lg:text-xl font-bold hover:text-accent-400 transition-colors">{CONTACT_INFO.phone}</a>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
@@ -466,7 +475,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <p className="text-xs uppercase tracking-widest opacity-60 mb-1">Email</p>
-                                    <a href={`mailto:${CONTACT_INFO.email}`} className="font-medium opacity-90 hover:text-accent-400 transition-colors">{CONTACT_INFO.email}</a>
+                                    <a href={`mailto:${CONTACT_INFO.email}`} className="font-medium opacity-90 hover:text-accent-400 transition-colors break-all">{CONTACT_INFO.email}</a>
                                 </div>
                             </div>
                         </div>
@@ -502,7 +511,7 @@ const Contact = () => {
                             <button 
                               type="submit" 
                               disabled={formState !== 'idle'}
-                              className={`w-full md:w-auto font-bold uppercase tracking-widest text-xs py-4 px-10 rounded-lg shadow-lg transition-all flex items-center justify-center gap-2 
+                              className={`w-full font-bold uppercase tracking-widest text-xs py-4 px-10 rounded-lg shadow-lg transition-all flex items-center justify-center gap-2 
                                 ${formState === 'success' 
                                   ? 'bg-green-600 text-white cursor-default' 
                                   : 'bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-500 hover:to-primary-600 text-white hover:shadow-xl hover:-translate-y-1'}`}
@@ -534,9 +543,9 @@ const Contact = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-800 pt-16 pb-8">
+    <footer className="bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-800 pt-12 lg:pt-16 pb-8">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-8 lg:gap-12 mb-12 lg:mb-16">
             
             <div className="max-w-sm">
                 <div className="flex items-center gap-3 mb-6">
@@ -660,9 +669,9 @@ const ChatWidget = () => {
       )}
 
       {isOpen && (
-        <div className="bg-white dark:bg-dark-card w-[90vw] sm:w-[360px] h-[550px] shadow-2xl rounded-2xl border border-gray-200 dark:border-gray-700 flex flex-col mb-4 overflow-hidden animate-fade-in-up">
+        <div className="bg-white dark:bg-dark-card w-[90vw] sm:w-[360px] h-[500px] max-h-[80vh] shadow-2xl rounded-2xl border border-gray-200 dark:border-gray-700 flex flex-col mb-4 overflow-hidden animate-fade-in-up">
           {/* Header */}
-          <div className="bg-gradient-to-r from-primary-600 to-primary-700 p-4 flex justify-between items-center text-white">
+          <div className="bg-gradient-to-r from-primary-600 to-primary-700 p-4 flex justify-between items-center text-white shrink-0">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
                 <i className="fa-solid fa-robot text-sm"></i>
@@ -702,7 +711,7 @@ const ChatWidget = () => {
           </div>
 
           {/* Input */}
-          <form onSubmit={handleSend} className="p-3 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+          <form onSubmit={handleSend} className="p-3 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700 shrink-0">
             <div className="flex gap-2 relative">
               <input
                 type="text"
